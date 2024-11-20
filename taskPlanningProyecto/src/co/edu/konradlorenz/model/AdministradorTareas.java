@@ -2,7 +2,7 @@ package co.edu.konradlorenz.model;
 
 import java.util.ArrayList;
 
-/**
+/*
  * @author Bautista_López_Patiño_Prieto
  */
 
