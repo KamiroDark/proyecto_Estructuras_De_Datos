@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Usuario
+ * @author Bautista_López_Patiño_Prieto
  */
+
 public class AdministradorTareas {
 
     //Atributos
