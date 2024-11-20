@@ -5,8 +5,9 @@ import java.time.format.DateTimeFormatter;
 
 /**
  *
- * @author Usuario
+ * @author Bautista_López_Patiño_Prieto
  */
+
 public class Tarea {
 
     //Atributos de la tarea
@@ -63,4 +64,5 @@ public class Tarea {
         String actualTime = fechaHoraActual.format(formato);
         return actualTime;
     }//Cierre getActualTime
+    
 }//Cierre tarea
