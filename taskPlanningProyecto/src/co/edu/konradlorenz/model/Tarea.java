@@ -3,7 +3,7 @@ package co.edu.konradlorenz.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
+/*
  * @author Bautista_López_Patiño_Prieto
  */
 
