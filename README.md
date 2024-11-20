@@ -3,7 +3,7 @@ Repositorio con el código del proyecto final de la materia Estructuras de datos
 
 Este es un proyecto de Java implementado utilizando el patrón de diseño MVC (Modelo-Vista-Controlador). El proyecto es una aplicación simple para gestionar un planificador de tareas, donde los usuarios pueden agregar, eliminar, buscar y mostrar tareas con diferentes prioridades.
 
-#Características
+##Características##
 El programa permite a los usuarios realizar las siguientes acciones:
 
 Agregar tareas: Los usuarios pueden agregar nuevas tareas, proporcionando un nombre, una descripción y una prioridad para cada tarea.
