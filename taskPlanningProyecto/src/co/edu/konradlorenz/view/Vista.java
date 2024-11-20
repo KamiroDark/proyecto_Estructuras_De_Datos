@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 /**
  *
- * @author Usuario
+ * @author Bautista_López_Patiño_Prieto
  */
+
 public class Vista {
 
     //Scanner
@@ -18,7 +19,7 @@ public class Vista {
 
         //Mensajito aleatorio para el usuario :3
         Random random = new Random();
-        int numeroAleatorio = random.nextInt(5) + 1;//Se generan de 1 a 5 numeros aleatorios
+        int numeroAleatorio = random.nextInt(5) + 1; //Se generan de 1 a 5 numeros aleatorios
         switch (numeroAleatorio) {
             case 1:
                 System.out.println("Recuerda tomar agua!");
