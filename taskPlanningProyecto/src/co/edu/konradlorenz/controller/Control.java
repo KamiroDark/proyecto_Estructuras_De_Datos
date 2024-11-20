@@ -1,5 +1,9 @@
 package co.edu.konradlorenz.controller;
 
+/*
+ * @author Bautista_López_Patiño_Prieto
+ */
+
 import co.edu.konradlorenz.model.AdministradorTareas;
 import co.edu.konradlorenz.model.Tarea;
 import co.edu.konradlorenz.view.Vista;
