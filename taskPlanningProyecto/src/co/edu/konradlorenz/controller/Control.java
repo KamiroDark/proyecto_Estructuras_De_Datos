@@ -1,10 +1,8 @@
-
 package co.edu.konradlorenz.controller;
 
 import co.edu.konradlorenz.model.AdministradorTareas;
 import co.edu.konradlorenz.model.Tarea;
 import co.edu.konradlorenz.view.Vista;
-
 
 public class Control {
     
@@ -37,6 +35,7 @@ public class Control {
                     objVista.mostrarMensaje("Opción incorrecta, selecciona un numero dentro del menú");
             }
         } while (true);
+    
     }//Cierre Run
     
     //Metodo para mostrar tareas
@@ -50,5 +49,6 @@ public class Control {
                 objVista.estadoTarea("-", tarea);
             }
         }
-        }//Cierre mostrarTareas
+    }//Cierre mostrarTareas
+
 }//Cierre Control
