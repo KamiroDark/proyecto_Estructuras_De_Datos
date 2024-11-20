@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
  * @author Bautista_López_Patiño_Prieto
  */
 
