@@ -43,6 +43,7 @@ public class Vista {
         System.out.println("3. Buscar tarea por nombre");
         System.out.println("4. Buscar tareas por prioridad");
         System.out.println("5. Mostrar todas las tareas asignadas");
+        System.out.println("6. Guardar Tareas");
         System.out.println("0. Salir");
 
     }//cierre menu
@@ -61,11 +62,16 @@ public class Vista {
     public int pedirInt(String mensaje) {
         while (true) {
 
-            try {//Excepción por si se ingresa algo diferente a un numero
+            try {//Execepcion para evitar caracteres inesperados o numeros menores o iguales a cero
                 System.out.println(mensaje);
-                return Integer.parseInt(sc.nextLine());
+                int numero = Integer.parseInt(sc.nextLine());
+                if (numero > 0) {
+                    return numero;
+                } else {
+                    System.out.println("El número debe ser mayor a 0. Intenta nuevamente.");
+                }
             } catch (NumberFormatException e) {
-                System.out.println("Por favor ingrese un numero válido.");
+                System.out.println("Por favor, ingresa un número válido.");
             }
         }//Cierre While
     }//Cierre pedirInt
