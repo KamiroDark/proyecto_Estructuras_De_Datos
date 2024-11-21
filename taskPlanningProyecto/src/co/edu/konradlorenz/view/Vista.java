@@ -44,7 +44,7 @@ public class Vista {
         System.out.println("4. Buscar tareas por prioridad");
         System.out.println("5. Mostrar todas las tareas asignadas");
         System.out.println("6. Guardar Tareas");
-        System.out.println("0. Salir");
+        System.out.println("7. Salir");
 
     }//cierre menu
 

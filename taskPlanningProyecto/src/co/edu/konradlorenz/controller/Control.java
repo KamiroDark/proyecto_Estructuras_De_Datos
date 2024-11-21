@@ -37,7 +37,7 @@ public class Control {
                     String nombreEliminar = objVista.pedirString("Ingresa el nombre de la tarea a eliminar:");
                     boolean eliminada = listaTareas.eliminarTarea(nombreEliminar);
                     if (eliminada) {
-                        objVista.mostrarMensaje("Tarea eliminada exitosamente.");
+                        objVista.mostrarMensaje("Se completó / eliminó " + nombreEliminar);
                     } else {
                         objVista.mostrarMensaje("No se encontró una tarea con ese nombre.");
                     }
@@ -49,8 +49,8 @@ public class Control {
                     break;
                 case 4:
                     int prioridadBuscar = objVista.pedirInt("Ingresa la prioridad a buscar:");
-                    ArrayList<Tarea> tareasPrioridad = listaTareas.buscarTareasPorPrioridad(prioridadBuscar);
-                    objVista.mostrarListaTareas(tareasPrioridad);
+                    Tarea tareasPrioridad = listaTareas.buscarTareasPorPrioridad(prioridadBuscar);
+                    objVista.mostrarTarea(tareasPrioridad);
                     break;
                 case 5:
                     mostrarTareas();
@@ -64,6 +64,10 @@ public class Control {
                     
                     System.exit(0);
                     break;
+                case 7:
+                    objVista.mostrarMensaje("Nos vemos!!");
+                    objVista.mostrarMensaje("Saliendo...");
+                    System.exit(0);
                 default:
                     objVista.mostrarMensaje("Opción incorrecta. Selecciona un número dentro del menú.");
             }

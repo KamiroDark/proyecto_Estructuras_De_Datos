@@ -42,7 +42,7 @@ public class AdministradorTareas {
     //Metodo para buscar una tarea por nombre
     public Tarea buscarTareaPorNombre(String nombreTarea) {
         for (Tarea tarea : colaArrayList) {
-            if (tarea.getNombreTarea().equalsIgnoreCase(nombreTarea)) {
+            if (tarea.getNombreTarea().contains(nombreTarea)) {
                 return tarea;
             }
         }
@@ -50,14 +50,15 @@ public class AdministradorTareas {
     }//Cierre buscarTareaPorNombre
 
     //Metodo para buscar tareas por prioridad
-    public ArrayList<Tarea> buscarTareasPorPrioridad(int prioridad) {
-        ArrayList<Tarea> tareasPorPrioridad = new ArrayList<>();
+    public Tarea buscarTareasPorPrioridad(int prioridad) {
+        
         for (Tarea tarea : colaArrayList) {
             if (tarea.getPrioridad() == prioridad) {
-                tareasPorPrioridad.add(tarea);
+                return tarea;
             }
         }
-        return tareasPorPrioridad;
+        return null;
+                
     }//Cierre buscarTareasPorPrioridad
 
     //Metodo para organizar las tareas por prioridad
