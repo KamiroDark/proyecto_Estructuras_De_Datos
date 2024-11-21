@@ -1,5 +1,6 @@
 package co.edu.konradlorenz.model;
 
+import co.edu.konradlorenz.view.Vista;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.io.*;
@@ -8,6 +9,8 @@ import java.io.*;
  * @author Bautista_López_Patiño_Prieto
  */
 public class AdministradorTareas {
+
+    protected Vista objVista = new Vista();
 
     // -- Atributos -- //
     private ArrayList<Tarea> colaArrayList;
@@ -70,9 +73,10 @@ public class AdministradorTareas {
         // Si el directorio no existe, crearlo
         if (directorio != null && !directorio.exists()) {
             if (directorio.mkdirs()) {
-                System.out.println("Directorio creado: " + directorio.getAbsolutePath());
+                //Vista.mostrarMensaje("Directorio creado: " + directorio.getAbsolutePath());
+                objVista.mostrarMensaje("Directorio creado: " + directorio.getAbsolutePath());
             } else {
-                System.out.println("No se pudo crear el directorio.");
+                objVista.mostrarMensaje("No se pudo crear el directorio.");
                 return;
             }
         }
@@ -80,11 +84,11 @@ public class AdministradorTareas {
         // Guardar el archivo
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(archivo))) {
             oos.writeObject(colaArrayList);  // Escribe las tareas en el archivo
-            System.out.println("Tareas guardadas exitosamente.");
-            System.out.println("Archivo guardado en: " + archivo.getAbsolutePath());
+            objVista.mostrarMensaje("Tareas guardadas exitosamente.");
+            objVista.mostrarMensaje("Archivo guardado en: " + archivo.getAbsolutePath());
 
         } catch (IOException e) {
-            System.out.println("Error al guardar las tareas: " + e.getMessage());
+            objVista.mostrarMensaje("Error al guardar las tareas: " + e.getMessage());
         }
     }
 
@@ -93,17 +97,17 @@ public class AdministradorTareas {
 
         // Verifica si el archivo existe
         if (!archivo.exists()) {
-            System.out.println("No se encontró el archivo tareas.dat en: " + archivo.getAbsolutePath());
-            System.out.println("Se iniciará con una lista vacía.");
+            objVista.mostrarMensaje("No se encontró el archivo tareas.dat en: " + archivo.getAbsolutePath());
+            objVista.mostrarMensaje("Se iniciará con una lista vacía.");
             return;
         }
 
         // Intentar cargar las tareas
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
             colaArrayList = (ArrayList<Tarea>) ois.readObject();  // Recarga las tareas
-            System.out.println("Tareas cargadas exitosamente.");
+            objVista.mostrarMensaje("Tareas cargadas exitosamente.");
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error al cargar las tareas: " + e.getMessage());
+            objVista.mostrarMensaje("Error al cargar las tareas: " + e.getMessage());
             colaArrayList = new ArrayList<>();  // Si ocurre un error, reinicia la lista
         }
     }
