@@ -6,7 +6,11 @@ import java.util.Comparator;
 import java.io.*;
 
 /*
- * @author Bautista_López_Patiño_Prieto
+ * @author // Integrantes del grupo //
+ *  Jose Luis Patiño | 506232065
+ *  Laura Valentina López García | 506232714
+ *  Briyid Tatiana Bautista Atuesta | 506222708
+ *  Juan Camilo Prieto Mestizo | 506232717
  */
 public class AdministradorTareas {
 
@@ -26,6 +30,7 @@ public class AdministradorTareas {
     }
 
     public void agregarTarea(Tarea tarea) {
+        tarea.setPrioridad(colaArrayList.size() + 1);
         colaArrayList.add(tarea);
     }
 
@@ -35,9 +40,13 @@ public class AdministradorTareas {
     }//Cierre estaVacia
 
     //Metodo para eliminar una tarea
-    public boolean eliminarTarea(String nombreTarea) {
-        return colaArrayList.removeIf(tarea -> tarea.getNombreTarea().equalsIgnoreCase(nombreTarea));
-    }
+    public void eliminarTarea() {
+        colaArrayList.remove(0);
+        for (int i = 0; i < colaArrayList.size(); i++) {
+            colaArrayList.get(i).setPrioridad(i + 1);
+        }
+
+    }//Cierre eliminarTarea
 
     //Metodo para buscar una tarea por nombre
     public Tarea buscarTareaPorNombre(String nombreTarea) {
@@ -51,21 +60,17 @@ public class AdministradorTareas {
 
     //Metodo para buscar tareas por prioridad
     public Tarea buscarTareasPorPrioridad(int prioridad) {
-        
+
         for (Tarea tarea : colaArrayList) {
             if (tarea.getPrioridad() == prioridad) {
                 return tarea;
             }
         }
         return null;
-                
+
     }//Cierre buscarTareasPorPrioridad
 
-    //Metodo para organizar las tareas por prioridad
-    public void ordenarPorPrioridad() {
-        colaArrayList.sort(Comparator.comparingInt(Tarea::getPrioridad));
-    }//Cierre ordenarPorPrioridad
-
+    //Metodo de persistencia para guardar un archivo en el dispositivo
     public void guardarTareasEnArchivo(String nombreArchivo) {
         // Usa la ruta relativa directamente
         File archivo = new File(nombreArchivo);  // "tareas.dat" guardado en el directorio de trabajo del proyecto
@@ -74,7 +79,7 @@ public class AdministradorTareas {
         // Si el directorio no existe, crearlo
         if (directorio != null && !directorio.exists()) {
             if (directorio.mkdirs()) {
-                //Vista.mostrarMensaje("Directorio creado: " + directorio.getAbsolutePath());
+
                 objVista.mostrarMensaje("Directorio creado: " + directorio.getAbsolutePath());
             } else {
                 objVista.mostrarMensaje("No se pudo crear el directorio.");
@@ -91,8 +96,9 @@ public class AdministradorTareas {
         } catch (IOException e) {
             objVista.mostrarMensaje("Error al guardar las tareas: " + e.getMessage());
         }
-    }
-
+    }//Cierre guardarTareasEnArchivo
+    
+    //Metodo para buscar y cargar los datos del archivo dentro del dispositivo
     public void cargarTareasDesdeArchivo(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
 
@@ -111,5 +117,6 @@ public class AdministradorTareas {
             objVista.mostrarMensaje("Error al cargar las tareas: " + e.getMessage());
             colaArrayList = new ArrayList<>();  // Si ocurre un error, reinicia la lista
         }
-    }
+    }//Cierre cargarTareasDesdeArchivo
+    
 }//Cierre AdministradorTareas Class

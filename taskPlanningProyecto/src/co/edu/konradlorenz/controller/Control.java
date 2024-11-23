@@ -1,7 +1,11 @@
 package co.edu.konradlorenz.controller;
 
 /*
-* @author Bautista_López_Patiño_Prieto
+ * @author // Integrantes del grupo //
+ *  Jose Luis Patiño | 506232065
+ *  Laura Valentina López García | 506232714
+ *  Briyid Tatiana Bautista Atuesta | 506222708
+ *  Juan Camilo Prieto Mestizo | 506232717
  */
 import co.edu.konradlorenz.model.AdministradorTareas;
 import co.edu.konradlorenz.model.Tarea;
@@ -28,16 +32,16 @@ public class Control {
                 case 1:
                     String nombre = objVista.pedirString("Ingresa el nombre de la tarea:");
                     String descripcion = objVista.pedirString("Agrega una descripción:");
-                    int prio = objVista.pedirInt("¿Qué prioridad le quieres dar? (1, 2, 3...)");
 
-                    Tarea nuevaTarea = new Tarea(nombre, descripcion, prio);
+                    Tarea nuevaTarea = new Tarea(nombre, descripcion, 0);
                     listaTareas.agregarTarea(nuevaTarea);
                     break;
                 case 2:
-                    String nombreEliminar = objVista.pedirString("Ingresa el nombre de la tarea a eliminar:");
-                    boolean eliminada = listaTareas.eliminarTarea(nombreEliminar);
-                    if (eliminada) {
-                        objVista.mostrarMensaje("Se completó / eliminó " + nombreEliminar);
+
+                    if (!listaTareas.estaVacia()) {
+                        objVista.mostrarMensaje("Tarea Completada!!!");
+                        listaTareas.eliminarTarea();
+
                     } else {
                         objVista.mostrarMensaje("No se encontró una tarea con ese nombre.");
                     }
@@ -61,7 +65,7 @@ public class Control {
 
                     // Mostrar las tareas después de cargarlas
                     mostrarTareas();
-                    
+
                     System.exit(0);
                     break;
                 case 7:
@@ -80,7 +84,7 @@ public class Control {
         if (vacio) {
             objVista.mostrarMensaje("No hay tareas en la lista.");
         } else {
-            listaTareas.ordenarPorPrioridad();
+            
             for (Tarea tarea : listaTareas.getColaArrayList()) {
                 objVista.estadoTarea("-", tarea);
             }
