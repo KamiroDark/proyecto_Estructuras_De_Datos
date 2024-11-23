@@ -6,7 +6,11 @@ import java.time.format.DateTimeFormatter;
 
 
 /*
- * @author Bautista_López_Patiño_Prieto
+ * @author // Integrantes del grupo //
+ *  Jose Luis Patiño | 506232065
+ *  Laura Valentina López García | 506232714
+ *  Briyid Tatiana Bautista Atuesta | 506222708
+ *  Juan Camilo Prieto Mestizo | 506232717
  */
 public class Tarea implements Serializable {
 
@@ -61,10 +65,4 @@ public class Tarea implements Serializable {
         return fechaCreacion.format(formato) + " " + prioridad + ". " + nombreTarea + " | Descripción: " + descripcion;
     }
 
-    /*/ -- // Metodo para la hora y fecha en formato legible // -- //
-    public String getActualTime() {
-        LocalDateTime fechaHoraActual = LocalDateTime.now();
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy");
-        return fechaHoraActual.format(formato);
-    }//Cierre getActualTime/*/
 }//Cierre Tarea Class

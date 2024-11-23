@@ -5,8 +5,12 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-/**
- * @author Bautista_López_Patiño_Prieto
+/*
+ * @author // Integrantes del grupo //
+ *  Jose Luis Patiño | 506232065
+ *  Laura Valentina López García | 506232714
+ *  Briyid Tatiana Bautista Atuesta | 506222708
+ *  Juan Camilo Prieto Mestizo | 506232717
  */
 public class Vista {
 
